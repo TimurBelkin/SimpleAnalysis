@@ -34,9 +34,19 @@ plt.xlabel('Counts')
 plt.ylabel('Values')
 plt.grid(axis='y', alpha=0.75)
 
-
 serDesc = ser.sort_values(ascending=False)
 serAsc = ser.sort_values()
+
+dataDict = {
+    'source': ser,
+    'ascended': serAsc.tolist(),
+    'descended': serDesc.tolist()
+}
+
+print(f'Dictionary frame : {dataDict}')
+
+dataFrame = pandas.DataFrame(data=dataDict)
+print(f'Data frame : {dataFrame}')
 
 plot3 = plt.figure(3)
 plt.plot(arrayX, serAsc)
