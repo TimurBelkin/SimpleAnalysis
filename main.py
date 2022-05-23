@@ -1,21 +1,21 @@
-import numpy
-import pandas
+import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 
 lowBoundary = -10000
 highBoundary = 10000
 numberOfElement = 1000
-sampl = numpy.random.default_rng().uniform(lowBoundary, highBoundary, numberOfElement)
-ser = pandas.Series(sampl, copy=False)
-minValue = pandas.Series.min(ser)
-maxValue = pandas.Series.max(ser)
-sumValue = pandas.Series.sum(ser)
+sample = np.random.default_rng().uniform(lowBoundary, highBoundary, numberOfElement)
+ser = pd.Series(sample, copy=False)
+minValue = pd.Series.min(ser)
+maxValue = pd.Series.max(ser)
+sumValue = pd.Series.sum(ser)
 
-ser2 = pandas.Series(sampl, copy=False)
+ser2 = pd.Series(sample, copy=False)
 ser2.drop_duplicates()
 countOfDublicates = ser.count() - ser2.count()
 
-print(f'Sample: {sampl}')
+print(f'samplee: {sample}')
 print(f'Value min: {minValue}, value max {maxValue}, value sum {sumValue}, count of dublicates {countOfDublicates}')
 
 plot1 = plt.figure(1)
@@ -26,9 +26,8 @@ plt.xlabel('Numbers')
 plt.ylabel('Values')
 
 plot2 = plt.figure(2)
-serFormatted = pandas.Series([float(round(elem, 2)) for elem in sampl], copy=False)
-serFormatted.plot.hist(grid=True, bins=20, rwidth=0.9,
-                   color='#607c8e')
+serFormatted = pd.Series([float(round(elem, 2)) for elem in sample], copy=False)
+serFormatted.plot.hist(grid=True, bins=20, rwidth=0.9, color='#607c8e')
 plt.title('Histogram for values')
 plt.xlabel('Counts')
 plt.ylabel('Values')
@@ -43,9 +42,7 @@ dataDict = {
     'descended': serDesc.tolist()
 }
 
-print(f'Dictionary frame : {dataDict}')
-
-dataFrame = pandas.DataFrame(data=dataDict)
+dataFrame = pd.DataFrame(data=dataDict)
 print(f'Data frame : {dataFrame}')
 
 plot3 = plt.figure(3)
