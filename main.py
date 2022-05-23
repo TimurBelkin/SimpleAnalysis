@@ -13,10 +13,10 @@ sumValue = pd.Series.sum(ser)
 
 ser2 = pd.Series(sample, copy=False)
 ser2.drop_duplicates()
-countOfDublicates = ser.count() - ser2.count()
+countOfDuplicates = ser.count() - ser2.count()
 
-print(f'samplee: {sample}')
-print(f'Value min: {minValue}, value max {maxValue}, value sum {sumValue}, count of dublicates {countOfDublicates}')
+print(f'sample: {sample}')
+print(f'Value min: {minValue}, value max : {maxValue}, value sum : {sumValue}, count of duplicates : {countOfDuplicates}')
 
 plot1 = plt.figure(1)
 arrayX = list(range(1, numberOfElement + 1))
